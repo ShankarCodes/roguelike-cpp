@@ -1,4 +1,5 @@
 #include "Engine.hpp"
+#include "ConfigFileReader.hpp"
 
 Engine::Engine() {
 	TCODConsole::initRoot(80, 50, "Shankar Roguelike", false, TCOD_RENDERER_SDL2);
@@ -11,6 +12,10 @@ Engine::Engine() {
 	}
 	player = new Actor(60, 40, '@', TCODColor::green);
 	addActor(player);
+	auto config = getConfig("colors.txt");
+	for (const auto& configItem : config) {
+		fmt::print("{} = {}\n",configItem.first, configItem.second);
+	}
 }
 
 Engine::~Engine() {
@@ -36,16 +41,16 @@ void Engine::handleEvents() {
 	case TCODK_CHAR:
 		switch (key.c) {
 		case 'w':
-			player->moveUp();
+			if(map->isWalkable(player->getXPos(), player->getYPos()-1)) player->moveUp();
 			break;
 		case 's':
-			player->moveDown();
+			if(map->isWalkable(player->getXPos(), player->getYPos()+1)) player->moveDown();
 			break;
 		case 'a':
-			player->moveLeft();
+			if(map->isWalkable(player->getXPos()-1, player->getYPos())) player->moveLeft();
 			break;
 		case 'd':
-			player->moveRight();
+			if(map->isWalkable(player->getXPos()+1, player->getYPos())) player->moveRight();
 			break;
 		}
 	default:break;

@@ -78,14 +78,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Shankar\header_only_libs\fmt-7.1.3\include;D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Shankar\header_only_libs\fmt-7.1.3;D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc;$(LibraryPath)</LibraryPath>
     <SourcePath>D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc\include;$(SourcePath)</SourcePath>
-    <IncludePath>D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Shankar\header_only_libs\fmt-7.1.3\include;D:\Shankar\msvc_lib\libtcod\libtcod-1.16.7-x86_64-msvc\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -125,7 +125,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libtcod.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libtcod.lib;fmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConfigFileReader.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actor.cpp" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.hpp" />
+    <ClInclude Include="ConfigFileReader.hpp" />
     <ClInclude Include="Engine.hpp" />
     <ClInclude Include="Map.hpp" />
   </ItemGroup>

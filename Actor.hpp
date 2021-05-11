@@ -19,4 +19,7 @@ public:
 	void moveDown();
 	void moveRight();
 	void moveLeft();
+
+	inline int getXPos() { return xPosition; };
+	inline int getYPos() { return yPosition; };
 };

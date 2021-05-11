@@ -1,5 +1,7 @@
 #pragma once
 #include<vector>
+#include<fmt/core.h>
+
 #include "Map.hpp"
 #include "Actor.hpp"
 
